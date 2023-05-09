@@ -3,11 +3,14 @@ import { useCallback, useEffect, useState } from "react";
 
 const useFetch = (endpoint, dataType) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getData = useCallback(async () => {
     try {
+      setLoading(true);
       await axios.get(endpoint).then(({ data }) => {
         setData(data[dataType]);
+        setLoading(false);
         console.log();
       });
     } catch (error) {
@@ -19,7 +22,7 @@ const useFetch = (endpoint, dataType) => {
     getData();
   }, [getData]);
 
-  return [data];
+  return [data, loading];
 };
 
 export { useFetch };

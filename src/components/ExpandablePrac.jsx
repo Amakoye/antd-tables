@@ -1,7 +1,10 @@
 import { Table, Tag } from "antd";
 import { useFetch } from "../hooks/useFetch";
 const ExpandablePrac = () => {
-  const [data] = useFetch("https://dummyjson.com/products", "products");
+  const [data, loading] = useFetch(
+    "https://dummyjson.com/products",
+    "products"
+  );
 
   const brandFilters = data
     .map((item) => {
@@ -75,12 +78,13 @@ const ExpandablePrac = () => {
           }}
         >
           {images.map((image) => (
-            <Tag
+            <div
               style={{
                 width: "100px",
                 height: "100px",
                 border: "1px solid transparent",
                 borderRadius: "1em",
+                cursor: "pointer",
               }}
             >
               <img
@@ -93,7 +97,7 @@ const ExpandablePrac = () => {
                 src={`${image}`}
                 alt={`${image}`}
               />
-            </Tag>
+            </div>
           ))}
         </div>
       ),
@@ -115,6 +119,7 @@ const ExpandablePrac = () => {
         bordered
         columns={columns}
         dataSource={data}
+        loading={loading}
       />
     </div>
   );
