@@ -1,13 +1,15 @@
 import "./App.css";
-import ExpandablePrac from "./components/ExpandablePrac";
+import RenderForm from "./components/Forms";
 
 function App() {
   return (
     <div className="App">
       {/* <BasicTable />
       <TableWithActions /> */}
-      <ExpandablePrac />
+      {/* <ExpandablePrac /> */}
+      {/* <PostsTableSelectable /> */}
       {/*  <FilterSortTable /> */}
+      <RenderForm />
     </div>
   );
 }

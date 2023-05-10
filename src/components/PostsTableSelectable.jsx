@@ -1,11 +1,8 @@
 import { Button, Divider, Table, Tag } from "antd";
-import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 const PostsTableSelectable = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  const [data] = useFetch("https://dummyjson.com/posts");
+  const [data] = useFetch("https://dummyjson.com/posts", "posts");
 
   const columns = [
     {
@@ -56,18 +53,19 @@ const PostsTableSelectable = () => {
       ),
     },
   ];
-
+  /* 
   const onSelectChange = (selectedRowKeys) => {
     console.log("selectedRowKeys changed: ", selectedRowKeys);
     setSelectedRowKeys({ selectedRowKeys });
-  };
+  }; */
 
   const rowSelection = {
-    selectedRowKeys,
-    onchange: onSelectChange,
-    getCheckboxProps: (record) => ({
+    onChange: (setSelectedRowKeys, selectedRows) => {
+      console.log(selectedRows);
+    },
+    /*  getCheckboxProps: (record) => ({
       name: record.name,
-    }),
+    }), */
   };
 
   return (

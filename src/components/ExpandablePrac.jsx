@@ -79,6 +79,7 @@ const ExpandablePrac = () => {
         >
           {images.map((image) => (
             <div
+              key={image}
               style={{
                 width: "100px",
                 height: "100px",
@@ -104,8 +105,6 @@ const ExpandablePrac = () => {
     },
   ];
 
-  console.log(brandFilters);
-
   return (
     <div
       style={{
@@ -120,6 +119,7 @@ const ExpandablePrac = () => {
         columns={columns}
         dataSource={data}
         loading={loading}
+        rowKey={(record) => record.id}
       />
     </div>
   );
