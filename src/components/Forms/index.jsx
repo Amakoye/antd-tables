@@ -1,11 +1,20 @@
-import WrappedRegistrationForm from "./RegistrationForm";
+import FormModalPage from "./FormModal";
 
 const RenderForm = () => {
   return (
-    <div style={{ display: "grid", placeItems: "center", padding: "1em" }}>
-      {/* <BasicForm /> */}
+    <div
+      style={{
+        display: "grid",
+        placeItems: "center",
+        padding: "1em",
+        height: "100vh",
+      }}
+    >
+      {/* <WrappedBasicForm /> */}
       {/* <WrappedLoginForm /> */}
-      <WrappedRegistrationForm />
+      {/* <WrappedRegistrationForm /> */}
+      {/*  <WrappedAdvancedSearch /> */}
+      <FormModalPage />
     </div>
   );
 };

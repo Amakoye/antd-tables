@@ -1,4 +1,4 @@
-import { Table, Tag } from "antd";
+import { Avatar, Table, Tag } from "antd";
 import { useFetch } from "../hooks/useFetch";
 const ExpandablePrac = () => {
   const [data, loading] = useFetch(
@@ -24,6 +24,13 @@ const ExpandablePrac = () => {
       key: "title",
       render: (title) => <h4>{title}</h4>,
     },
+    {
+      title: "Avatar",
+      dataIndex: "images",
+      key: "avatar",
+      render: (images) => <Avatar src={`${images[0]}`} />,
+    },
+
     {
       title: "Price",
       dataIndex: "price",
@@ -65,6 +72,7 @@ const ExpandablePrac = () => {
         </span>
       ),
     },
+
     {
       title: "Images",
       dataIndex: "images",

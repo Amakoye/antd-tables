@@ -59,6 +59,10 @@ const PostsTableSelectable = () => {
     setSelectedRowKeys({ selectedRowKeys });
   }; */
 
+  const handleTableChange = (e) => {
+    console.log(e);
+  };
+
   const rowSelection = {
     onChange: (setSelectedRowKeys, selectedRows) => {
       console.log(selectedRows);
@@ -81,6 +85,7 @@ const PostsTableSelectable = () => {
         rowSelection={rowSelection}
         columns={columns}
         dataSource={data}
+        onChange={handleTableChange}
       />
     </div>
   );
